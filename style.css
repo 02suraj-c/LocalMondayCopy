@@ -1,0 +1,290 @@
+
+/* =========================
+   1. Global Styling
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #eef5ff, #dbeafe);
+    color: #1e293b;
+    min-height: 100vh;
+}
+
+/* =========================
+   2. Navigation Menu
+========================= */
+
+nav {
+    background: linear-gradient(90deg, #0f172a, #1e40af);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 30px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: visible;
+}
+
+nav ul li {
+    float: none;
+}
+
+nav ul li a {
+    display: block;
+    padding: 18px 24px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #2563eb;
+}
+
+/* =========================
+   3. Headings and Paragraphs
+========================= */
+
+h1,
+h2 {
+    text-align: center;
+    color: #1e3a8a;
+    margin: 35px 15px 15px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+p {
+    margin: 20px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #475569;
+}
+
+/* =========================
+   4. Calculator Table
+========================= */
+
+table {
+    width: 85%;
+    max-width: 1100px;
+    margin: 35px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(30, 64, 175, 0.12);
+}
+
+/* Table Header */
+
+thead th {
+    background: linear-gradient(135deg, #2563eb, #0284c7);
+    color: #ffffff;
+    padding: 20px 14px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+}
+
+/* Table Cells */
+
+td {
+    padding: 18px 14px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+/* Alternate Rows */
+
+tbody tr:nth-child(even) {
+    background-color: #f8fbff;
+}
+
+/* Row Hover Effect */
+
+tbody tr {
+    transition: background-color 0.25s ease;
+}
+
+tbody tr:hover {
+    background-color: #eaf3ff;
+}
+
+/* Remove Last Row Border */
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* =========================
+   5. Input Fields
+========================= */
+
+input[type="number"],
+select {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 14px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #1e293b;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+input[type="number"]:focus,
+select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+input[type="number"]::placeholder {
+    color: #94a3b8;
+}
+
+/* =========================
+   6. Calculate Button
+========================= */
+
+button,
+.calculate-btn {
+    display: block;
+    margin: 25px auto;
+    padding: 14px 36px;
+    border: none;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #2563eb, #0284c7);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.25);
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+}
+
+button:hover,
+.calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+button:active,
+.calculate-btn:active {
+    transform: translateY(0);
+}
+
+/* =========================
+   7. Final Output
+========================= */
+
+.output {
+    color: #047857;
+    font-weight: 800;
+    font-size: 18px;
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+   8. Responsive Design
+========================= */
+
+@media (max-width: 768px) {
+    nav ul {
+        padding: 0 10px;
+    }
+
+    nav ul li a {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    table {
+        width: 96%;
+        margin: 25px auto;
+    }
+
+    th {
+        padding: 12px 6px;
+        font-size: 13px;
+    }
+
+    td {
+        padding: 10px 6px;
+        font-size: 13px;
+    }
+
+    input[type="number"],
+    select {
+        padding: 10px 6px;
+        font-size: 13px;
+    }
+
+    button,
+    .calculate-btn {
+        padding: 12px 26px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        padding: 0;
+    }
+
+    nav ul li a {
+        padding: 13px 12px;
+        font-size: 13px;
+    }
+
+    table {
+        width: 98%;
+        margin: 20px auto;
+    }
+
+    th {
+        padding: 10px 3px;
+        font-size: 11px;
+        overflow-wrap: anywhere;
+    }
+
+    td {
+        padding: 8px 3px;
+    }
+
+    input[type="number"],
+    select {
+        padding: 9px 3px;
+        font-size: 12px;
+    }
+
+    .output {
+        font-size: 14px;
+    }
+}
