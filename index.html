@@ -1,9 +1,182 @@
-<html>
-    <head>
-        <title>MY 1st repo</title>
-    </head>
-    <body>
-        <h1>Welcome to My First Repository</h1>
-        <p>This is HCL Training.</p>
-    </body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Calculator</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .calculator-input {
+            width: 85%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .operator-select {
+            width: 85%;
+            padding: 10px;
+        }
+
+        .calculate-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .calculate-btn:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .calculator-input,
+            .operator-select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#calculator">Calculator</a></li>
+        </ul>
+    </nav>
+
+    <h2 id="home">Arithmetic Calculator</h2>
+
+    <p style="text-align: center;">
+        Enter two numbers and select an arithmetic operator.
+    </p>
+
+    <!-- Calculator Table -->
+    
+<table id="calculator">
+    <thead>
+        <tr>
+            <th>S.No.</th>
+            <th>Input 1</th>
+            <th>Operator</th>
+            <th>Input 2</th>
+            <th>Final Output</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>1</td>
+
+            <td>
+                <input
+                    type="number"
+                    id="input1"
+                    placeholder="Enter first number"
+                    step="any"
+                >
+            </td>
+
+            <td>
+                <select id="operator">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                    <option value="%">%</option>
+                </select>
+            </td>
+
+            <td>
+                <input
+                    type="number"
+                    id="input2"
+                    placeholder="Enter second number"
+                    step="any"
+                >
+            </td>
+
+            <td class="output" id="result">---</td>
+        </tr>
+    </tbody>
+</table>
+
+
+    <!-- Calculate Button -->
+    <button class="calculate-btn" onclick="calculate()">
+        Calculate
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        function calculate() {
+            const value1 = document.getElementById("input1").value;
+            const value2 = document.getElementById("input2").value;
+            const operator = document.getElementById("operator").value;
+            const resultElement = document.getElementById("result");
+
+            if (value1 === "" || value2 === "") {
+                resultElement.textContent = "Enter both inputs";
+                return;
+            }
+
+            const num1 = Number(value1);
+            const num2 = Number(value2);
+            let result;
+
+            switch (operator) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+
+                case "-":
+                    result = num1 - num2;
+                    break;
+
+                case "*":
+                    result = num1 * num2;
+                    break;
+
+                case "/":
+                    if (num2 === 0) {
+                        resultElement.textContent =
+                            "Cannot divide by zero";
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+
+                case "%":
+                    if (num2 === 0) {
+                        resultElement.textContent =
+                            "Cannot use zero as divisor";
+                        return;
+                    }
+                    result = num1 % num2;
+                    break;
+
+                default:
+                    resultElement.textContent = "Invalid operator";
+                    return;
+            }
+
+            resultElement.textContent = result;
+        }
+    </script>
+
+</body>
 </html>
